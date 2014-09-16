@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/codegangsta/cli"
+	"os"
 )
 
 type Genre struct {
@@ -62,5 +64,15 @@ type NowtvJsonData struct {
 }
 
 func main() {
-	fmt.Println("nowtv-go")
+	app := cli.NewApp()
+	app.Name = "nowtv"
+	app.Version = Version
+	app.Usage = ""
+	app.Author = "dtan4"
+	app.Email = "dtanshi45@gmail.com"
+	app.Action = doMain
+	app.Run(os.Args)
+}
+
+func doMain(c *cli.Context) {
 }
